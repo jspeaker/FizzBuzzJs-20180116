@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FizzBuzzJS-20180116", "..\FizzBuzzJS-20180116\", "{6E8EB0E0-AD6D-4D6B-98FF-7B05ACA742BA}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51877"
+		Debug.AspNetCompiler.PhysicalPath = "..\FizzBuzzJS-20180116\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51877\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51877"
+		Release.AspNetCompiler.PhysicalPath = "..\FizzBuzzJS-20180116\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51877\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "51877"
+		SlnRelativePath = "..\FizzBuzzJS-20180116\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E8EB0E0-AD6D-4D6B-98FF-7B05ACA742BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E8EB0E0-AD6D-4D6B-98FF-7B05ACA742BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {63A4C3A2-56D0-49CF-9042-908339F96027}
+	EndGlobalSection
+EndGlobal
