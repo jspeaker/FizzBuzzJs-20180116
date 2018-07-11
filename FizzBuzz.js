@@ -8,11 +8,6 @@ Kata.FizzBuzz = function () {
 
 };
 
-// ReSharper disable once NativeTypePrototypeExtending
-Number.prototype.evenlyDivisibleBy = function(dividend) {
-  return this % dividend === 0;
-};
-
 describe("GivenFoo",
   function () {
     it("WhenCallingBar_ThenItShouldBaz",
