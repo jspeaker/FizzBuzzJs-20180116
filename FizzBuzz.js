@@ -1,13 +1,13 @@
 ﻿var Kata = Kata || {};
 
 Kata.FizzBuzz = function (value) {
-
   var throwError = function () {
     throw new Error("Required argument 'value' must be a positive integer.");
   };
 
   // ReSharper disable once CallerCalleeUsing
-  if (!value || value < 1 || parseInt(value) !== value) throwError();
+  if (!value) throwError();
+  if (!value.isPositiveInteger()) throwError();
 
   if (!(this instanceof arguments.callee)) {
     return new arguments.callee(value);
@@ -59,6 +59,11 @@ var Buzz = function () {
 // ReSharper disable once NativeTypePrototypeExtending
 Number.prototype.evenlyDivisibleBy = function (dividend) {
   return this.valueOf() !== 0 && this % dividend === 0;
+};
+
+// ReSharper disable once NativeTypePrototypeExtending
+Number.prototype.isPositiveInteger = function () {
+  return this > 0 && parseInt(this) === this.valueOf();
 };
 
 describe("GivenNonIntegerInput",
