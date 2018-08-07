@@ -7,19 +7,16 @@ Kata.FizzBuzz = function (value) {
 
   // ReSharper disable once CallerCalleeUsing
   if (!value) throwError();
-  if (!value.isPositiveInteger()) throwError();
+  if (!value.positiveInteger()) throwError();
 
   if (!(this instanceof arguments.callee)) {
     return new arguments.callee(value);
   }
 
   var text = function () {
-    var buzz = new Buzz();
-    var fizz = new Fizz();
-
-    if (value.evenlyDivisibleBy(15)) return fizz.text() + buzz.text();
-    if (value.evenlyDivisibleBy(5)) return buzz.text();
-    if (value.evenlyDivisibleBy(3)) return fizz.text();
+    if (value.evenlyDivisibleBy(15)) return (new Fizz()).text() + (new Buzz()).text();
+    if (value.evenlyDivisibleBy(5)) return (new Buzz()).text();
+    if (value.evenlyDivisibleBy(3)) return (new Fizz()).text();
     return value.toString();
   };
 
@@ -62,7 +59,7 @@ Number.prototype.evenlyDivisibleBy = function (dividend) {
 };
 
 // ReSharper disable once NativeTypePrototypeExtending
-Number.prototype.isPositiveInteger = function () {
+Number.prototype.positiveInteger = function () {
   return this > 0 && parseInt(this) === this.valueOf();
 };
 
