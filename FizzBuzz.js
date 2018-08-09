@@ -16,103 +16,111 @@ Kata.Main = function (fizzBuzzNumber, fizzBuzzStrategy) {
   };
 };
 
-describe("Given No FizzBuzzNumber Parameter",
+describe("Given Kata.Main",
   function () {
-    it("When Calling Main Constructor Then It Should Throw Correct Error",
+    describe("And No FizzBuzzNumber Parameter",
       function () {
-        // arrange // act // assert
-        // ReSharper disable once ConstructorCallNotUsed
-        expect(function () { new Kata.Main(); }).toThrow(new Error("Parameter 'fizzBuzzNumber' is required."));
+        it("When Calling Main Constructor Then It Should Throw Correct Error",
+          function () {
+            // arrange // act // assert
+            // ReSharper disable once ConstructorCallNotUsed
+            expect(function () { new Kata.Main(); }).toThrow(new Error("Parameter 'fizzBuzzNumber' is required."));
+          });
       });
-  });
 
-describe("Given No FizzBuzzStrategy Parameter",
-  function () {
-    it("When Calling Main Constructor Then It Should Not Throw Error",
+    describe("And No FizzBuzzStrategy Parameter",
       function () {
-        // arrange // act // assert
-        // ReSharper disable once ConstructorCallNotUsed
-        expect(function () { new Kata.Main(new Kata.FizzBuzzNumber(123)); }).not.toThrow(new Error("Parameter 'fizzBuzzNumber' is required."));
+        it("When Calling Main Constructor Then It Should Not Throw Error",
+          function () {
+            // arrange // act // assert
+            // ReSharper disable once ConstructorCallNotUsed
+            expect(function () { new Kata.Main(new Kata.FizzBuzzNumber(123)); }).not.toThrow(new Error("Parameter 'fizzBuzzNumber' is required."));
+          });
       });
-  });
 
-describe("Given Native Number As FizzBuzzNumber Parameter",
-  function () {
-    it("When Calling Main Constructor Then It Should Not Throw Error",
+    describe("And Native Number As FizzBuzzNumber Parameter",
       function () {
-        // arrange // act // assert
-        // ReSharper disable once ConstructorCallNotUsed
-        expect(function () { new Kata.Main(123); }).not.toThrow(new Error("Parameter 'fizzBuzzNumber' is required."));
+        it("When Calling Main Constructor Then It Should Not Throw Error",
+          function () {
+            // arrange // act // assert
+            // ReSharper disable once ConstructorCallNotUsed
+            expect(function () { new Kata.Main(123); }).not.toThrow(new Error("Parameter 'fizzBuzzNumber' is required."));
+          });
       });
-  });
 
-describe("Given No New Keyword",
-  function () {
-    it("When Calling Main Constructor Then It Should Not Throw Error",
+    describe("And No New Keyword",
       function () {
-        // arrange // act // assert
-        // ReSharper disable once ConstructorCallNotUsed
-        expect(function () { Kata.Main(123); }).not.toThrow(new Error("Parameter 'fizzBuzzNumber' is required."));
+        it("When Calling Main Constructor Then It Should Return Main Object",
+          function () {
+            // arrange 
+            var main = Kata.Main(4);
+
+            // act 
+            var actual = main.text();
+
+            // assert
+            expect(actual).toBe("4");
+          });
       });
-  });
 
-describe("Given Number Not Divisible By Three Nor Five",
-  function () {
-    it("When Calling String Then It Should Return Two As String",
+    describe("And Number Not Divisible By Three Nor Five",
       function () {
-        // arrange
-        var fizzBuzz = new Kata.Main(new Kata.FizzBuzzNumber(8));
+        it("When Calling String Then It Should Return Two As String",
+          function () {
+            // arrange
+            var fizzBuzz = new Kata.Main(new Kata.FizzBuzzNumber(8));
 
-        // act
-        var actual = fizzBuzz.text();
+            // act
+            var actual = fizzBuzz.text();
 
-        // assert
-        expect(actual).toEqual("8");
+            // assert
+            expect(actual).toBe("8");
+          });
       });
-  });
 
-describe("Given Number Divisible By Three",
-  function () {
-    it("WhenCallingString_ThenItShouldReturnFizz",
+    describe("And Number Divisible By Three",
       function () {
-        // arrange
-        var fizzBuzz = new Kata.Main(new Kata.FizzBuzzNumber(4 * 3));
+        it("WhenCallingString_ThenItShouldReturnFizz",
+          function () {
+            // arrange
+            var fizzBuzz = new Kata.Main(new Kata.FizzBuzzNumber(4 * 3));
 
-        // act
-        var actual = fizzBuzz.text();
+            // act
+            var actual = fizzBuzz.text();
 
-        // assert
-        expect(actual).toEqual("fizz");
+            // assert
+            expect(actual).toBe("fizz");
+          });
       });
-  });
 
-describe("Given Number Divisible By Five",
-  function () {
-    it("WhenCallingString_ThenItShouldReturnBuzz",
+    describe("And Number Divisible By Five",
       function () {
-        // arrange
-        var fizzBuzz = new Kata.Main(new Kata.FizzBuzzNumber(4 * 5));
+        it("WhenCallingString_ThenItShouldReturnBuzz",
+          function () {
+            // arrange
+            var fizzBuzz = new Kata.Main(new Kata.FizzBuzzNumber(4 * 5));
 
-        // act
-        var actual = fizzBuzz.text();
+            // act
+            var actual = fizzBuzz.text();
 
-        // assert
-        expect(actual).toEqual("buzz");
+            // assert
+            expect(actual).toBe("buzz");
+          });
       });
-  });
 
-describe("Given Number Divisible By Three and Five",
-  function () {
-    it("WhenCallingString_ThenItShouldReturnFizzBuzz",
+    describe("And Number Divisible By Three and Five",
       function () {
-        // arrange
-        var fizzBuzz = new Kata.Main(new Kata.FizzBuzzNumber(4 * 3 * 5));
+        it("WhenCallingString_ThenItShouldReturnFizzBuzz",
+          function () {
+            // arrange
+            var fizzBuzz = new Kata.Main(new Kata.FizzBuzzNumber(4 * 3 * 5));
 
-        // act
-        var actual = fizzBuzz.text();
+            // act
+            var actual = fizzBuzz.text();
 
-        // assert
-        expect(actual).toEqual("fizzbuzz");
+            // assert
+            expect(actual).toBe("fizzbuzz");
+          });
       });
   });
 
@@ -137,66 +145,84 @@ Kata.FizzBuzzNumber = function (number) {
   };
 };
 
-describe("Given Not A Number As Number Parameter",
+describe("Given Kata.FizzBuzzNumber",
   function () {
-    it("When Calling FizzBuzzNumber Constructor Then It Should Throw Correct Error",
+    describe("And Not A Number As Number Parameter",
       function () {
-        // arrange // act // assert
-        // ReSharper disable once ConstructorCallNotUsed
-        expect(function () { new Kata.FizzBuzzNumber("a"); }).toThrow(new Error("Parameter 'number' must be of type 'number' but was 'string'."));
-      });
-  });
-
-describe("Given Non-Integer Number As Number Parameter",
-  function () {
-    it("When Calling FizzBuzzNumber Constructor Then It Should Throw Correct Error",
-      function () {
-        // arrange // act // assert
-        // ReSharper disable once ConstructorCallNotUsed
-        expect(function () { new Kata.FizzBuzzNumber(1.234); }).toThrow(new Error("Parameter 'number' must be an integer."));
-      });
-  });
-
-describe("Given Any Integer As Number Parameter",
-  function () {
-    it("When Calling Text Then It Should Return Integer As String",
-      function () {
-        // arrange 
-        var fizzBuzzNumber = new Kata.FizzBuzzNumber(234);
-
-        // act 
-        var actual = fizzBuzzNumber.text();
-        // assert
-        expect(actual).toBe("234");
-      });
-
-    describe("And No Remainder From Divisor",
-      function () {
-        it("When Calling EvenlyDivisibleBy Then It Should Return True",
+        it("When Calling FizzBuzzNumber Constructor Then It Should Throw Correct Error",
           function () {
-            // arrange 
-            var fizzBuzzNumber = new Kata.FizzBuzzNumber(12);
-
-            // act 
-            var actual = fizzBuzzNumber.evenlyDivisibleBy(6);
-
-            // assert
-            expect(actual).toBe(true);
+            // arrange // act // assert
+            // ReSharper disable once ConstructorCallNotUsed
+            expect(function () { new Kata.FizzBuzzNumber("a"); }).toThrow(new Error("Parameter 'number' must be of type 'number' but was 'string'."));
           });
       });
 
-    describe("And Remainder From Divisor",
+    describe("And Non-Integer Number As Number Parameter",
       function () {
-        it("When Calling EvenlyDivisibleBy Then It Should Return False",
+        it("When Calling FizzBuzzNumber Constructor Then It Should Throw Correct Error",
+          function () {
+            // arrange // act // assert
+            // ReSharper disable once ConstructorCallNotUsed
+            expect(function () { new Kata.FizzBuzzNumber(1.234); }).toThrow(new Error("Parameter 'number' must be an integer."));
+          });
+      });
+
+    describe("And No New Keyword",
+      function () {
+        it("When Calling Main Constructor Then It Should Return FizzBuzzNumber Object",
           function () {
             // arrange 
-            var fizzBuzzNumber = new Kata.FizzBuzzNumber(12);
+            var fizzBuzzNumber = Kata.FizzBuzzNumber(1234);
 
             // act 
-            var actual = fizzBuzzNumber.evenlyDivisibleBy(5);
+            var actual = fizzBuzzNumber.text();
 
             // assert
-            expect(actual).toBe(false);
+            expect(actual).toBe("1234");
+          });
+      });
+
+    describe("And Any Integer As Number Parameter",
+      function () {
+        it("When Calling Text Then It Should Return Integer As String",
+          function () {
+            // arrange 
+            var fizzBuzzNumber = new Kata.FizzBuzzNumber(234);
+
+            // act 
+            var actual = fizzBuzzNumber.text();
+            // assert
+            expect(actual).toBe("234");
+          });
+
+        describe("And No Remainder From Divisor",
+          function () {
+            it("When Calling EvenlyDivisibleBy Then It Should Return True",
+              function () {
+                // arrange 
+                var fizzBuzzNumber = new Kata.FizzBuzzNumber(12);
+
+                // act 
+                var actual = fizzBuzzNumber.evenlyDivisibleBy(6);
+
+                // assert
+                expect(actual).toBe(true);
+              });
+          });
+
+        describe("And Remainder From Divisor",
+          function () {
+            it("When Calling EvenlyDivisibleBy Then It Should Return False",
+              function () {
+                // arrange 
+                var fizzBuzzNumber = new Kata.FizzBuzzNumber(12);
+
+                // act 
+                var actual = fizzBuzzNumber.evenlyDivisibleBy(5);
+
+                // assert
+                expect(actual).toBe(false);
+              });
           });
       });
   });
@@ -215,19 +241,36 @@ Kata.FizzBuzzStrategy = function (next) {
   };
 };
 
-describe("Given Integer Divisible By Three and Five",
+describe("Given FizzBuzzStrategy",
   function () {
-    it("When Calling FizzBuzz Strategy Then It Should Return FizzBuzz",
+    describe("And No New Keyword",
       function () {
-        // arrange
-        var number = new Kata.FizzBuzzNumber(4 * 3 * 5);
-        var strategy = new Kata.FizzBuzzStrategy();
+        it("When Calling Constructor Then It Should Return FizzBuzzStrategy Object",
+          function () {
+            // arrange 
+            var strategy = Kata.FizzBuzzStrategy(new Kata.DefaultStrategy());
 
-        // act
-        var actual = strategy.text(number);
+            // act 
+            var actual = strategy.text(new Kata.FizzBuzzNumber(1234));
 
-        // assert
-        expect(actual).toEqual("fizzbuzz");
+            // assert
+            expect(actual).toBe("1234");
+          });
+      });
+
+    describe("And Integer Divisible By Three and Five",
+      function () {
+        it("When Calling Text Then It Should Return FizzBuzz",
+          function () {
+            // arrange
+            var strategy = new Kata.FizzBuzzStrategy();
+
+            // act
+            var actual = strategy.text(new Kata.FizzBuzzNumber(4 * 3 * 5));
+
+            // assert
+            expect(actual).toBe("fizzbuzz");
+          });
       });
   });
 
@@ -245,21 +288,39 @@ Kata.BuzzStrategy = function (next) {
   };
 };
 
-describe("Given Integer Divisible By Five",
+describe("Given BuzzStrategy",
   function () {
-    it("When Calling Buzz Strategy Then It Should Return Buzz",
+    describe("And No New Keyword",
       function () {
-        // arrange
-        var number = new Kata.FizzBuzzNumber(4 * 5);
-        var strategy = new Kata.BuzzStrategy();
+        it("When Calling Constructor Then It Should Return BuzzStrategy Object",
+          function () {
+            // arrange 
+            var strategy = Kata.BuzzStrategy(new Kata.DefaultStrategy());
 
-        // act
-        var actual = strategy.text(number);
+            // act 
+            var actual = strategy.text(new Kata.FizzBuzzNumber(1234));
 
-        // assert
-        expect(actual).toEqual("buzz");
+            // assert
+            expect(actual).toBe("1234");
+          });
+      });
+
+    describe("And Integer Divisible By Five",
+      function () {
+        it("When Calling Text Then It Should Return Buzz",
+          function () {
+            // arrange
+            var strategy = new Kata.BuzzStrategy();
+
+            // act
+            var actual = strategy.text(new Kata.FizzBuzzNumber(4 * 5));
+
+            // assert
+            expect(actual).toBe("buzz");
+          });
       });
   });
+
 
 Kata.FizzStrategy = function (next) {
   // ReSharper disable once CallerCalleeUsing
@@ -275,19 +336,36 @@ Kata.FizzStrategy = function (next) {
   };
 };
 
-describe("Given Integer Divisible By Three",
-  function () {
-    it("When Calling Fizz Strategy Then It Should Return Fizz",
+describe("Given FizzStrategy",
+  function() {
+    describe("And No New Keyword",
       function () {
-        // arrange
-        var number = new Kata.FizzBuzzNumber(4 * 3);
-        var strategy = new Kata.FizzStrategy();
+        it("When Calling Constructor Then It Should Return FizzStrategy Object",
+          function () {
+            // arrange 
+            var strategy = Kata.FizzStrategy(new Kata.DefaultStrategy());
 
-        // act
-        var actual = strategy.text(number);
+            // act 
+            var actual = strategy.text(new Kata.FizzBuzzNumber(1234));
 
-        // assert
-        expect(actual).toEqual("fizz");
+            // assert
+            expect(actual).toBe("1234");
+          });
+      });
+
+    describe("And Integer Divisible By Three",
+      function () {
+        it("When Calling Text Then It Should Return Fizz",
+          function () {
+            // arrange
+            var strategy = new Kata.FizzStrategy();
+
+            // act
+            var actual = strategy.text(new Kata.FizzBuzzNumber(4 * 3));
+
+            // assert
+            expect(actual).toBe("fizz");
+          });
       });
   });
 
@@ -304,18 +382,36 @@ Kata.DefaultStrategy = function () {
   };
 };
 
-describe("Given Any Integer",
-  function () {
-    it("When Calling Default Strategy Then It Should Return Number As String",
+describe("Given DefaultStrategy",
+  function() {
+
+    describe("And No New Keyword",
       function () {
-        // arrange
-        var number = new Kata.FizzBuzzNumber(345);
-        var strategy = new Kata.DefaultStrategy();
+        it("When Calling Constructor Then It Should Return DefaultStrategy Object",
+          function () {
+            // arrange 
+            var strategy = Kata.DefaultStrategy();
 
-        // act
-        var actual = strategy.text(number);
+            // act 
+            var actual = strategy.text(new Kata.FizzBuzzNumber(1234));
 
-        // assert
-        expect(actual).toEqual("345");
+            // assert
+            expect(actual).toBe("1234");
+          });
+      });
+
+    describe("Given Any Integer",
+      function () {
+        it("When Calling Text Then It Should Return Number As String",
+          function () {
+            // arrange
+            var strategy = new Kata.DefaultStrategy();
+
+            // act
+            var actual = strategy.text(new Kata.FizzBuzzNumber(345));
+
+            // assert
+            expect(actual).toBe("345");
+          });
       });
   });
