@@ -116,18 +116,18 @@ describe("Given Number Divisible By Three and Five",
       });
   });
 
-Kata.FizzBuzzNumber = function(number) {
+Kata.FizzBuzzNumber = function (number) {
   if (typeof number !== "number")
     throw Error("Parameter 'number' must be of type 'number' but was '" + typeof number + "'.");
   if (parseInt(number) !== number) throw Error("Parameter 'number' must be an integer.");
   // ReSharper disable once CallerCalleeUsing
   if (!(this instanceof arguments.callee)) return new arguments.callee(number);
 
-  var evenlyDivisibleBy = function(divisor) {
+  var evenlyDivisibleBy = function (divisor) {
     return number % divisor === 0;
   };
 
-  var text = function() {
+  var text = function () {
     return number.toString();
   };
 
